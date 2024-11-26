@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold & AI Art Collaboration</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #FFD700, #FFD700), 
+                        url('honeycomb-pattern.png') no-repeat;
+            background-size: contain;
+            background-position: left top, right bottom;
+            color: black;
+        }
+        header {
+            background-color: #FFC300;
+            color: black;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid black;
+        }
+        .container {
+            padding: 20px;
+            border: 2px solid black;
+            margin: 20px;
+            border-radius: 10px;
+            background-color: white;
+        }
+        h1, h2 {
+            text-align: center;
+            color: black;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .gallery img {
+            max-width: 90%;
+            height: auto;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #FFC300;
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            border-top: 3px solid black;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #333333;
+        }
+        .contact, .donation {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gold & AI Art Collaboration</h1>
+        <p>Explore the harmony of human and AI creativity</p>
+    </header>
+    <div class="container">
+        <h2>About the Project</h2>
+        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
+        
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="DALL·E-masterpiece.webp" alt="Visualization of the Universe and Meditation">
+        </div>
+        
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:13gaudi@gmail.com">13gaudi@gmail.com</a></p>
+        </div>
+        
+        <div class="donation">
+            <h2>Support the Project</h2>
+            <p>Donate Bitcoin: <code>19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</code></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Gold & AI Art Collaboration</p>
+    </footer>
+</body>
+</html>
+from PIL import Image
 
+# Load the newly uploaded image
+image_path = "/mnt/data/IZmgeeolMSY.jpg"
+original_image = Image.open(image_path)
+
+# Define sizes and aspect ratios
+sizes = {
+    "4K": (3840, 2160),  # 4K resolution
+    "Square": (3840, 3840),  # 1:1 aspect ratio (Square for social media)
+}
+
+# Resize to 4K resolution
+image_4k = original_image.resize(sizes["4K"], Image.LANCZOS)
+image_4k_path = "/mnt/data/rabbit_4K.jpg"
+image_4k.save(image_4k_path, format="JPEG", quality=95)
+
+# Resize to Square (1:1)
+image_square = original_image.resize(sizes["Square"], Image.LANCZOS)
+image_square_path = "/mnt/data/rabbit_square.jpg"
+image_square.save(image_square_path, format="JPEG", quality=95)
+
+(image_4k_path, image_square_path)
