@@ -27,6 +27,7 @@
             border: 2px solid black;
             margin: 20px;
             border-radius: 10px;
+            background-color: white;
         }
         h1, h2 {
             text-align: center;
@@ -34,15 +35,14 @@
         }
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
             justify-content: center;
+            margin-top: 20px;
         }
         .gallery img {
-            max-width: 200px;
+            max-width: 90%;
             height: auto;
             border: 2px solid black;
-            border-radius: 5px;
+            border-radius: 10px;
         }
         footer {
             background-color: #FFC300;
@@ -59,14 +59,9 @@
         a:hover {
             color: #333333;
         }
-        .qr-code {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .donation {
+        .contact, .donation {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -78,17 +73,20 @@
     <div class="container">
         <h2>About the Project</h2>
         <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
+        
         <h2>Gallery</h2>
         <div class="gallery">
-            <img src="placeholder1.jpg" alt="Artwork 1">
-            <img src="placeholder2.jpg" alt="Artwork 2">
-            <img src="placeholder3.jpg" alt="Artwork 3">
+            <img src="DALL·E-masterpiece.webp" alt="Visualization of the Universe and Meditation">
         </div>
-        <h2>Contact</h2>
-        <p>Email: gold.art@futurevision.com</p>
+        
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:13gaudi@gmail.com">13gaudi@gmail.com</a></p>
+        </div>
+        
         <div class="donation">
             <h2>Support the Project</h2>
-            <p>Donate Bitcoin 19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</p>
+            <p>Donate Bitcoin: <code>19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</code></p>
         </div>
     </div>
     <footer>
