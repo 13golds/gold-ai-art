@@ -38,10 +38,15 @@
             gap: 15px;
             margin-top: 20px;
         }
+        .gallery-item {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #fff;
+        }
         .gallery img {
             width: 100%;
             height: auto;
-            border: 2px solid black;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s;
@@ -49,50 +54,12 @@
         .gallery img:hover {
             transform: scale(1.05);
         }
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .lightbox:target {
-            display: flex;
-        }
-        footer {
-            background-color: #FFC300;
-            color: black;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-            border-top: 3px solid black;
-        }
-        a {
-            color: black;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #333333;
-        }
-        .contact, .donation {
-            text-align: center;
-            margin-top: 20px;
-        }
         .comments {
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .comments textarea {
             width: 100%;
-            height: 100px;
+            height: 60px;
             margin-bottom: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -114,7 +81,7 @@
         }
         .comment {
             border-bottom: 1px solid #ccc;
-            padding: 10px 0;
+            padding: 5px 0;
             display: flex;
             justify-content: space-between;
         }
@@ -126,6 +93,25 @@
         .comment .delete:hover {
             text-decoration: underline;
         }
+        footer {
+            background-color: #FFC300;
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            border-top: 3px solid black;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #333333;
+        }
+        .contact, .donation {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -135,64 +121,4 @@
     </header>
     <div class="container">
         <h2>About the Project</h2>
-        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
-        
-        <h2>Gallery</h2>
-        <div class="gallery">
-            <a href="#img1"><img src="images/image1.webp" alt="Image 1"></a>
-            <a href="#img2"><img src="images/image2.webp" alt="Image 2"></a>
-            <a href="#img3"><img src="images/image3.webp" alt="Image 3"></a>
-            <a href="#img4"><img src="images/image4.webp" alt="Image 4"></a>
-            <a href="#img5"><img src="images/image5.webp" alt="Image 5"></a>
-            <a href="#img6"><img src="images/image6.webp" alt="Image 6"></a>
-            <a href="#img7"><img src="images/image7.webp" alt="Image 7"></a>
-        </div>
-
-        <!-- Lightbox for larger view -->
-        <div id="img1" class="lightbox"><img src="images/image1.webp" alt="Image 1"></div>
-        <div id="img2" class="lightbox"><img src="images/image2.webp" alt="Image 2"></div>
-        <div id="img3" class="lightbox"><img src="images/image3.webp" alt="Image 3"></div>
-        <div id="img4" class="lightbox"><img src="images/image4.webp" alt="Image 4"></div>
-        <div id="img5" class="lightbox"><img src="images/image5.webp" alt="Image 5"></div>
-        <div id="img6" class="lightbox"><img src="images/image6.webp" alt="Image 6"></div>
-        <div id="img7" class="lightbox"><img src="images/image7.webp" alt="Image 7"></div>
-
-        <div class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:13gaudi@gmail.com">13gaudi@gmail.com</a></p>
-        </div>
-        
-        <div class="donation">
-            <h2>Support the Project</h2>
-            <p>Donate Bitcoin: <code>19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</code></p>
-        </div>
-
-        <div class="comments">
-            <h2>Comments</h2>
-            <textarea placeholder="Write your comment here..."></textarea>
-            <button onclick="addComment()">Submit</button>
-            <div class="comment-list"></div>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 Gold & AI Art Collaboration</p>
-    </footer>
-
-    <script>
-        function addComment() {
-            const textarea = document.querySelector('.comments textarea');
-            const commentList = document.querySelector('.comment-list');
-            if (textarea.value.trim()) {
-                const comment = document.createElement('div');
-                comment.className = 'comment';
-                comment.innerHTML = `
-                    <span>${textarea.value}</span>
-                    <span class="delete" onclick="this.parentElement.remove()">Delete</span>
-                `;
-                commentList.appendChild(comment);
-                textarea.value = '';
-            }
-        }
-    </script>
-</body>
-</html>
+        <p>This project represents a unique collaboratio
