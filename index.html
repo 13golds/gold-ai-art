@@ -65,7 +65,7 @@
     </header>
 
     <div class="gallery">
-        <!-- Image 1 -->
+        <!-- Gallery items -->
         <div class="gallery-item" data-id="image1">
             <img src="images/image1.jpg" alt="Artwork 1">
             <div class="comments" id="comments-image1"></div>
@@ -74,7 +74,6 @@
                 <button type="submit">Post</button>
             </form>
         </div>
-        <!-- Image 2 -->
         <div class="gallery-item" data-id="image2">
             <img src="images/image2.jpg" alt="Artwork 2">
             <div class="comments" id="comments-image2"></div>
@@ -83,7 +82,46 @@
                 <button type="submit">Post</button>
             </form>
         </div>
-        <!-- Add more images as needed -->
+        <div class="gallery-item" data-id="image3">
+            <img src="images/image3.jpg" alt="Artwork 3">
+            <div class="comments" id="comments-image3"></div>
+            <form class="comment-form" onsubmit="addComment('image3', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image3" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div class="gallery-item" data-id="image4">
+            <img src="images/image4.jpg" alt="Artwork 4">
+            <div class="comments" id="comments-image4"></div>
+            <form class="comment-form" onsubmit="addComment('image4', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image4" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div class="gallery-item" data-id="image5">
+            <img src="images/image5.jpg" alt="Artwork 5">
+            <div class="comments" id="comments-image5"></div>
+            <form class="comment-form" onsubmit="addComment('image5', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image5" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div class="gallery-item" data-id="image6">
+            <img src="images/image6.jpg" alt="Artwork 6">
+            <div class="comments" id="comments-image6"></div>
+            <form class="comment-form" onsubmit="addComment('image6', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image6" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div class="gallery-item" data-id="image7">
+            <img src="images/image7.jpg" alt="Artwork 7">
+            <div class="comments" id="comments-image7"></div>
+            <form class="comment-form" onsubmit="addComment('image7', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image7" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
     </div>
 
     <footer>
@@ -106,7 +144,7 @@
         const app = firebase.initializeApp(firebaseConfig);
         const db = firebase.database(app);
 
-        const adminEmail = "your_admin_email@example.com"; // Set your email for admin rights
+        const adminEmail = "your_admin_email@example.com"; // Set your admin email
 
         // Add a comment
         function addComment(imageId, event) {
@@ -114,7 +152,7 @@
             const input = document.getElementById(`comment-input-${imageId}`);
             const comment = input.value;
             const commentRef = firebase.database().ref(`comments/${imageId}`).push();
-            commentRef.set({ text: comment, user: "anonymous" }); // Replace "anonymous" with user info if you add authentication
+            commentRef.set({ text: comment, user: "anonymous" });
             input.value = "";
         }
 
@@ -147,7 +185,11 @@
         // Load comments for all images
         loadComments("image1");
         loadComments("image2");
-        // Add more image IDs as necessary
+        loadComments("image3");
+        loadComments("image4");
+        loadComments("image5");
+        loadComments("image6");
+        loadComments("image7");
     </script>
 </body>
 </html>
