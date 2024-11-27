@@ -121,4 +121,97 @@
     </header>
     <div class="container">
         <h2>About the Project</h2>
-        <p>This project represents a unique collaboratio
+        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
+        
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/image1.webp" alt="Image 1">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 1..."></textarea>
+                    <button onclick="addComment(1)">Submit</button>
+                    <div class="comment-list" id="comments-1"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image2.webp" alt="Image 2">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 2..."></textarea>
+                    <button onclick="addComment(2)">Submit</button>
+                    <div class="comment-list" id="comments-2"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image3.webp" alt="Image 3">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 3..."></textarea>
+                    <button onclick="addComment(3)">Submit</button>
+                    <div class="comment-list" id="comments-3"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image4.webp" alt="Image 4">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 4..."></textarea>
+                    <button onclick="addComment(4)">Submit</button>
+                    <div class="comment-list" id="comments-4"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image5.webp" alt="Image 5">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 5..."></textarea>
+                    <button onclick="addComment(5)">Submit</button>
+                    <div class="comment-list" id="comments-5"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image6.webp" alt="Image 6">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 6..."></textarea>
+                    <button onclick="addComment(6)">Submit</button>
+                    <div class="comment-list" id="comments-6"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image7.webp" alt="Image 7">
+                <div class="comments">
+                    <textarea placeholder="Write your comment for Image 7..."></textarea>
+                    <button onclick="addComment(7)">Submit</button>
+                    <div class="comment-list" id="comments-7"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:13gaudi@gmail.com">13gaudi@gmail.com</a></p>
+        </div>
+        
+        <div class="donation">
+            <h2>Support the Project</h2>
+            <p>Donate Bitcoin: <code>19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</code></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Gold & AI Art Collaboration</p>
+    </footer>
+
+    <script>
+        function addComment(imageId) {
+            const textarea = document.querySelector(`#comments-${imageId}`).previousElementSibling;
+            const commentList = document.querySelector(`#comments-${imageId}`);
+            if (textarea.value.trim()) {
+                const comment = document.createElement('div');
+                comment.className = 'comment';
+                comment.innerHTML = `
+                    <span>${textarea.value}</span>
+                    <span class="delete" onclick="this.parentElement.remove()">Delete</span>
+                `;
+                commentList.appendChild(comment);
+                textarea.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
