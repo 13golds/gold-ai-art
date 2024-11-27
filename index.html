@@ -4,113 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gold & AI Art Collaboration</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
     <style>
         body {
             font-family: "Georgia", serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #FFD700, #FFD700), 
-                        url('honeycomb-pattern.png') no-repeat;
-            background-size: contain;
-            background-position: left top, right bottom;
+            background-color: #f5f5f5;
             color: black;
         }
         header {
             background-color: #FFC300;
-            color: black;
             padding: 20px;
             text-align: center;
             border-bottom: 3px solid black;
         }
-        .container {
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            background-color: white;
-        }
-        h1, h2 {
-            text-align: center;
-            color: black;
-        }
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
         }
         .gallery-item {
+            margin: 10px;
+            text-align: center;
             border: 2px solid black;
             border-radius: 10px;
             padding: 10px;
-            background-color: #fff;
+            background-color: white;
         }
         .gallery img {
-            width: 100%;
+            width: 300px;
             height: auto;
-            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
+            border-radius: 10px;
         }
         .comments {
             margin-top: 10px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
         }
-        .comments textarea {
-            width: 100%;
-            height: 60px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-        .comments button {
-            background-color: #FFC300;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .comments button:hover {
-            background-color: #ffbf00;
-        }
-        .comment-list {
+        .comment-form {
             margin-top: 10px;
-        }
-        .comment {
-            border-bottom: 1px solid #ccc;
-            padding: 5px 0;
-            display: flex;
-            justify-content: space-between;
-        }
-        .comment .delete {
-            color: red;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .comment .delete:hover {
-            text-decoration: underline;
         }
         footer {
             background-color: #FFC300;
-            color: black;
             text-align: center;
             padding: 10px 0;
-            margin-top: 20px;
             border-top: 3px solid black;
-        }
-        a {
-            color: black;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #333333;
-        }
-        .contact, .donation {
-            text-align: center;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -119,99 +63,91 @@
         <h1>Gold & AI Art Collaboration</h1>
         <p>Explore the harmony of human and AI creativity</p>
     </header>
-    <div class="container">
-        <h2>About the Project</h2>
-        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
-        
-        <h2>Gallery</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="images/image1.webp" alt="Image 1">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 1..."></textarea>
-                    <button onclick="addComment(1)">Submit</button>
-                    <div class="comment-list" id="comments-1"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/image2.webp" alt="Image 2">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 2..."></textarea>
-                    <button onclick="addComment(2)">Submit</button>
-                    <div class="comment-list" id="comments-2"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/image3.webp" alt="Image 3">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 3..."></textarea>
-                    <button onclick="addComment(3)">Submit</button>
-                    <div class="comment-list" id="comments-3"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/image4.webp" alt="Image 4">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 4..."></textarea>
-                    <button onclick="addComment(4)">Submit</button>
-                    <div class="comment-list" id="comments-4"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/image5.webp" alt="Image 5">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 5..."></textarea>
-                    <button onclick="addComment(5)">Submit</button>
-                    <div class="comment-list" id="comments-5"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/image6.webp" alt="Image 6">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 6..."></textarea>
-                    <button onclick="addComment(6)">Submit</button>
-                    <div class="comment-list" id="comments-6"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/image7.webp" alt="Image 7">
-                <div class="comments">
-                    <textarea placeholder="Write your comment for Image 7..."></textarea>
-                    <button onclick="addComment(7)">Submit</button>
-                    <div class="comment-list" id="comments-7"></div>
-                </div>
-            </div>
-        </div>
 
-        <div class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:13gaudi@gmail.com">13gaudi@gmail.com</a></p>
+    <div class="gallery">
+        <!-- Image 1 -->
+        <div class="gallery-item" data-id="image1">
+            <img src="images/image1.jpg" alt="Artwork 1">
+            <div class="comments" id="comments-image1"></div>
+            <form class="comment-form" onsubmit="addComment('image1', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image1" required>
+                <button type="submit">Post</button>
+            </form>
         </div>
-        
-        <div class="donation">
-            <h2>Support the Project</h2>
-            <p>Donate Bitcoin: <code>19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</code></p>
+        <!-- Image 2 -->
+        <div class="gallery-item" data-id="image2">
+            <img src="images/image2.jpg" alt="Artwork 2">
+            <div class="comments" id="comments-image2"></div>
+            <form class="comment-form" onsubmit="addComment('image2', event)">
+                <input type="text" placeholder="Add a comment" id="comment-input-image2" required>
+                <button type="submit">Post</button>
+            </form>
         </div>
+        <!-- Add more images as needed -->
     </div>
+
     <footer>
-        <p>&copy; 2024 Gold & AI Art Collaboration</p>
+        <p>Email: <a href="mailto:13gaudi@gmail.com">13gaudi@gmail.com</a></p>
+        <p>Donate Bitcoin: <code>19v9X5okQoU98TCeRDjtW3aKAv9V8EdppG</code></p>
     </footer>
 
     <script>
-        function addComment(imageId) {
-            const textarea = document.querySelector(`#comments-${imageId}`).previousElementSibling;
-            const commentList = document.querySelector(`#comments-${imageId}`);
-            if (textarea.value.trim()) {
-                const comment = document.createElement('div');
-                comment.className = 'comment';
-                comment.innerHTML = `
-                    <span>${textarea.value}</span>
-                    <span class="delete" onclick="this.parentElement.remove()">Delete</span>
-                `;
-                commentList.appendChild(comment);
-                textarea.value = '';
-            }
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.database(app);
+
+        const adminEmail = "your_admin_email@example.com"; // Set your email for admin rights
+
+        // Add a comment
+        function addComment(imageId, event) {
+            event.preventDefault();
+            const input = document.getElementById(`comment-input-${imageId}`);
+            const comment = input.value;
+            const commentRef = firebase.database().ref(`comments/${imageId}`).push();
+            commentRef.set({ text: comment, user: "anonymous" }); // Replace "anonymous" with user info if you add authentication
+            input.value = "";
         }
+
+        // Load comments for each image
+        function loadComments(imageId) {
+            const commentsDiv = document.getElementById(`comments-${imageId}`);
+            const commentsRef = firebase.database().ref(`comments/${imageId}`);
+            commentsRef.on("value", (snapshot) => {
+                commentsDiv.innerHTML = ""; // Clear previous comments
+                snapshot.forEach((childSnapshot) => {
+                    const commentData = childSnapshot.val();
+                    const commentEl = document.createElement("div");
+                    commentEl.innerHTML = `
+                        <p>${commentData.text} ${
+                            adminEmail === "your_admin_email@example.com"
+                                ? `<button onclick="deleteComment('${imageId}', '${childSnapshot.key}')">Delete</button>`
+                                : ""
+                        }</p>`;
+                    commentsDiv.appendChild(commentEl);
+                });
+            });
+        }
+
+        // Delete a comment (admin only)
+        function deleteComment(imageId, commentId) {
+            const commentRef = firebase.database().ref(`comments/${imageId}/${commentId}`);
+            commentRef.remove();
+        }
+
+        // Load comments for all images
+        loadComments("image1");
+        loadComments("image2");
+        // Add more image IDs as necessary
     </script>
 </body>
 </html>
