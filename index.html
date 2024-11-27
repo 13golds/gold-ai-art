@@ -24,7 +24,6 @@
         }
         .container {
             padding: 20px;
-            border: 2px solid black;
             margin: 20px;
             border-radius: 10px;
             background-color: white;
@@ -116,6 +115,16 @@
         .comment {
             border-bottom: 1px solid #ccc;
             padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .comment .delete {
+            color: red;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .comment .delete:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -130,23 +139,23 @@
         
         <h2>Gallery</h2>
         <div class="gallery">
-            <a href="#img1"><img src="images/DALL·E-masterpiece.webp" alt="Visualization of the Universe and Meditation"></a>
-            <a href="#img2"><img src="images/rabbit_4K.jpg" alt="Rabbit in 4K"></a>
-            <a href="#img3"><img src="images/rabbit_square.jpg" alt="Rabbit Square Format"></a>
-            <a href="#img4"><img src="images/ai_brain.jpg" alt="AI Visualization"></a>
-            <a href="#img5"><img src="images/human_ai_collaboration.jpg" alt="Human and AI Collaboration"></a>
-            <a href="#img6"><img src="images/harmony_art.jpg" alt="Harmony in Art"></a>
-            <a href="#img7"><img src="images/spaceship_gold.jpg" alt="Spaceship Gold Corp"></a>
+            <a href="#img1"><img src="images/image1.webp" alt="Image 1"></a>
+            <a href="#img2"><img src="images/image2.webp" alt="Image 2"></a>
+            <a href="#img3"><img src="images/image3.webp" alt="Image 3"></a>
+            <a href="#img4"><img src="images/image4.webp" alt="Image 4"></a>
+            <a href="#img5"><img src="images/image5.webp" alt="Image 5"></a>
+            <a href="#img6"><img src="images/image6.webp" alt="Image 6"></a>
+            <a href="#img7"><img src="images/image7.webp" alt="Image 7"></a>
         </div>
 
         <!-- Lightbox for larger view -->
-        <div id="img1" class="lightbox"><img src="images/DALL·E-masterpiece.webp" alt="Visualization of the Universe and Meditation"></div>
-        <div id="img2" class="lightbox"><img src="images/rabbit_4K.jpg" alt="Rabbit in 4K"></div>
-        <div id="img3" class="lightbox"><img src="images/rabbit_square.jpg" alt="Rabbit Square Format"></div>
-        <div id="img4" class="lightbox"><img src="images/ai_brain.jpg" alt="AI Visualization"></div>
-        <div id="img5" class="lightbox"><img src="images/human_ai_collaboration.jpg" alt="Human and AI Collaboration"></div>
-        <div id="img6" class="lightbox"><img src="images/harmony_art.jpg" alt="Harmony in Art"></div>
-        <div id="img7" class="lightbox"><img src="images/spaceship_gold.jpg" alt="Spaceship Gold Corp"></div>
+        <div id="img1" class="lightbox"><img src="images/image1.webp" alt="Image 1"></div>
+        <div id="img2" class="lightbox"><img src="images/image2.webp" alt="Image 2"></div>
+        <div id="img3" class="lightbox"><img src="images/image3.webp" alt="Image 3"></div>
+        <div id="img4" class="lightbox"><img src="images/image4.webp" alt="Image 4"></div>
+        <div id="img5" class="lightbox"><img src="images/image5.webp" alt="Image 5"></div>
+        <div id="img6" class="lightbox"><img src="images/image6.webp" alt="Image 6"></div>
+        <div id="img7" class="lightbox"><img src="images/image7.webp" alt="Image 7"></div>
 
         <div class="contact">
             <h2>Contact</h2>
@@ -176,7 +185,10 @@
             if (textarea.value.trim()) {
                 const comment = document.createElement('div');
                 comment.className = 'comment';
-                comment.textContent = textarea.value;
+                comment.innerHTML = `
+                    <span>${textarea.value}</span>
+                    <span class="delete" onclick="this.parentElement.remove()">Delete</span>
+                `;
                 commentList.appendChild(comment);
                 textarea.value = '';
             }
