@@ -9,7 +9,7 @@
             font-family: "Georgia", serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #FFD700, #FFD700), 
+            background: linear-gradient(to bottom, #FFD700, #FFD700),
                         url('honeycomb-pattern.png') no-repeat;
             background-size: contain;
             background-position: left top, right bottom;
@@ -49,56 +49,27 @@
         .gallery-item img {
             width: 100%;
             height: auto;
-            cursor: pointer;
         }
         .comments-section {
-            text-align: left;
             padding: 10px;
+            text-align: left;
             border-top: 1px solid #ccc;
-            margin-top: 10px;
-        }
-        .comments-section input {
-            width: 90%;
-            margin-bottom: 10px;
-            padding: 5px;
         }
         .comment {
             margin-bottom: 10px;
         }
-        .admin-control {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .admin-control button {
-            background-color: #FFD700;
-            border: 1px solid black;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 5px;
-        }
-        .admin-control button:hover {
-            background-color: #FFC300;
-        }
         .donation-section {
             text-align: center;
-            margin-top: 40px;
             padding: 20px;
+            background: #FFC300;
             border: 2px solid black;
             border-radius: 10px;
-            background-color: #FFC300;
-        }
-        .donation-section img {
-            width: 150px;
-            height: 150px;
-            margin-top: 10px;
         }
         footer {
             background-color: #FFC300;
-            color: black;
             text-align: center;
             padding: 10px 0;
-            margin-top: 20px;
+            color: black;
             border-top: 3px solid black;
         }
     </style>
@@ -108,65 +79,74 @@
         <h1>Gold & AI Art Collaboration</h1>
         <p>Explore the harmony of human and AI creativity</p>
     </header>
+
     <div class="container">
         <h2>About the Project</h2>
         <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
     </div>
+
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Loop for all images -->
-            <div class="gallery-item" id="item1">
+            <!-- Repeat for all 18 images -->
+            <div class="gallery-item">
                 <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name..." class="comment-name">
                     <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment('item1')">Submit Comment</button>
+                    <button onclick="addComment(this)">Submit Comment</button>
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Repeat for all images -->
-            ${['2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webp', '9.webp', '10.webp', 
-            '11.webp', '12.webp', '13.webp', '14.webp', '15.webp', '16.webp', '010101.webp', '101010.webp']
-            .map((img, i) => `
-                <div class="gallery-item" id="item${i + 2}">
-                    <img src="${img}" alt="Image ${i + 2}">
-                    <div class="comments-section">
-                        <input type="text" placeholder="Your name..." class="comment-name">
-                        <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                        <button onclick="addComment('item${i + 2}')">Submit Comment</button>
-                        <div class="comments-list"></div>
-                    </div>
-                </div>`).join('')}
+            <div class="gallery-item">
+                <img src="2.webp" alt="Image 2">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name..." class="comment-name">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <!-- Repeat for all images up to 18.webp -->
+            <div class="gallery-item">
+                <img src="101010.webp" alt="Image 18">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name..." class="comment-name">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Donation Section -->
+
     <div class="donation-section">
         <h2>Support the Project</h2>
         <p>Email: <a href="mailto:aigolds@proton.me">aigolds@proton.me</a></p>
         <p>USDT Wallet Address (TRC20): <code>TE73z7ufj88bWZMs3MUwgRDHCTakFTpM1R</code></p>
         <img src="usdt tc20.jpg" alt="USDT QR Code">
     </div>
+
     <footer>
         <p>&copy; 2024 Gold & AI Art Collaboration</p>
     </footer>
 
     <script>
-        const commentsData = {};
-
-        function addComment(itemId) {
-            const item = document.getElementById(itemId);
-            const nameInput = item.querySelector('.comment-name');
-            const commentInput = item.querySelector('.comment-input');
-            const commentsList = item.querySelector('.comments-list');
+        function addComment(button) {
+            const galleryItem = button.closest('.gallery-item');
+            const nameInput = galleryItem.querySelector('.comment-name');
+            const commentInput = galleryItem.querySelector('.comment-input');
+            const commentsList = galleryItem.querySelector('.comments-list');
+            
             const name = nameInput.value.trim();
             const comment = commentInput.value.trim();
-
+            
             if (name && comment) {
                 const newComment = document.createElement('div');
                 newComment.className = 'comment';
-                newComment.innerHTML = `<p><strong>${name}:</strong> ${comment}</p>`;
+                newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
                 commentsList.appendChild(newComment);
+                
                 nameInput.value = '';
                 commentInput.value = '';
             } else {
