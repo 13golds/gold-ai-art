@@ -88,6 +88,12 @@
             height: 150px;
             margin-top: 10px;
         }
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
         footer {
             background-color: #FFC300;
             color: black;
@@ -104,48 +110,39 @@
         <p>Explore the harmony of human and AI creativity</p>
     </header>
     <div class="container">
+        <h2>About the Project</h2>
+        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
+    </div>
+    <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Images with comment functionality -->
-            <div class="gallery-item">
-                <img src="8.webp" alt="Image 8">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="9.webp" alt="Image 9">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="10.webp" alt="Image 10">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
+            <!-- Loop for 18 images -->
+            ${Array.from({ length: 18 }).map(
+                (_, i) => `
+                    <div class="gallery-item">
+                        <img src="${i + 1}.webp" alt="Image ${i + 1}">
+                        <div class="comments-section">
+                            <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                            <button onclick="addComment(this)">Submit Comment</button>
+                            <div class="comments-list"></div>
+                        </div>
+                    </div>
+                `
+            ).join("")}
         </div>
     </div>
-    
     <!-- Donation Section -->
     <div class="donation-section">
         <h2>Support the Project</h2>
         <p>Email: <a href="mailto:aigolds@proton.me">aigolds@proton.me</a></p>
         <p>USDT Wallet Address (TRC20): <code>TE73z7ufj88bWZMs3MUwgRDHCTakFTpM1R</code></p>
-        <img src="qr usdt trc20.jpg" alt="USDT QR Code">
+        <div class="qr-container">
+            <img src="qr usdt trc20.jpg" alt="USDT QR Code">
+        </div>
     </div>
-    
     <footer>
         <p>&copy; 2024 Gold & AI Art Collaboration</p>
     </footer>
-
     <script>
         function addComment(button) {
             const textarea = button.previousElementSibling;
