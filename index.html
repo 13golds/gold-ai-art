@@ -43,7 +43,7 @@
             border-radius: 10px;
             overflow: hidden;
             background-color: white;
-            max-width: 300px;
+            width: 300px;
             text-align: center;
         }
         .gallery-item img {
@@ -52,8 +52,8 @@
         }
         .comments-section {
             padding: 10px;
-            border-top: 1px solid #ccc;
             text-align: left;
+            border-top: 1px solid #ccc;
         }
         .comments-section input, .comments-section textarea {
             width: 90%;
@@ -68,7 +68,7 @@
         }
         .donation-section {
             text-align: center;
-            margin: 40px 20px;
+            margin-top: 40px;
             padding: 20px;
             border: 2px solid black;
             border-radius: 10px;
@@ -83,9 +83,8 @@
             background-color: #FFC300;
             text-align: center;
             padding: 10px 0;
-            margin-top: 20px;
-            border-top: 3px solid black;
             color: black;
+            border-top: 3px solid black;
         }
     </style>
 </head>
@@ -103,7 +102,7 @@
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- 18 Static Images with Comment Sections -->
+            <!-- Static Gallery Items -->
             <div class="gallery-item">
                 <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
@@ -122,7 +121,7 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Repeat for all images -->
+            <!-- Repeat for other images -->
             <div class="gallery-item">
                 <img src="101010.webp" alt="Image 18">
                 <div class="comments-section">
