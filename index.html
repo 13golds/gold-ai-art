@@ -41,7 +41,6 @@
         .gallery-item {
             border: 2px solid black;
             border-radius: 10px;
-            overflow: hidden;
             background-color: white;
             width: 300px;
             text-align: center;
@@ -52,8 +51,8 @@
         }
         .comments-section {
             padding: 10px;
-            text-align: left;
             border-top: 1px solid #ccc;
+            text-align: left;
         }
         .comments-section input, .comments-section textarea {
             width: 90%;
@@ -102,7 +101,7 @@
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Static Gallery Items -->
+            <!-- Static Images with Comment Sections -->
             <div class="gallery-item">
                 <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
@@ -113,7 +112,7 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="2.webp" alt="Image 2">
+                <img src="4.webp" alt="Image 4">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name...">
                     <textarea placeholder="Leave a comment..."></textarea>
@@ -121,7 +120,15 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Repeat for other images -->
+            <div class="gallery-item">
+                <img src="5.webp" alt="Image 5">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
             <div class="gallery-item">
                 <img src="101010.webp" alt="Image 18">
                 <div class="comments-section">
