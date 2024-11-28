@@ -48,7 +48,6 @@
         .gallery-item img {
             width: 100%;
             height: auto;
-            cursor: pointer;
         }
         .comments-section {
             padding: 10px;
@@ -86,31 +85,6 @@
             color: black;
             border-top: 3px solid black;
         }
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -128,17 +102,114 @@
         <h2>Gallery</h2>
         <div class="gallery">
             <!-- Add all 12 Gallery Items -->
-            ${['1.webp', '5.webp', '6.webp', '8.webp', '9.webp', '10.webp', '11.webp', '13.webp', '15.webp', '16.webp', '010101.webp', '101010.webp']
-                .map((image, index) => `
-                <div class="gallery-item">
-                    <img src="${image}" alt="Image ${index + 1}" onclick="openModal('${image}')">
-                    <div class="comments-section">
-                        <input type="text" placeholder="Your name...">
-                        <textarea placeholder="Leave a comment..."></textarea>
-                        <button onclick="addComment(this)">Submit Comment</button>
-                        <div class="comments-list"></div>
-                    </div>
-                </div>`).join('')}
+            <div class="gallery-item">
+                <img src="1.webp" alt="Image 1">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="5.webp" alt="Image 2">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="6.webp" alt="Image 3">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="8.webp" alt="Image 4">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="9.webp" alt="Image 5">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="10.webp" alt="Image 6">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="11.webp" alt="Image 7">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="13.webp" alt="Image 8">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="15.webp" alt="Image 9">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="16.webp" alt="Image 10">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="010101.webp" alt="Image 11">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="101010.webp" alt="Image 12">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -153,28 +224,7 @@
         <p>&copy; 2024 Gold & AI Art Collaboration</p>
     </footer>
 
-    <!-- Modal for image zoom -->
-    <div id="image-modal" class="modal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <img id="modal-img" src="" alt="Zoomed Image">
-    </div>
-
     <script>
-        // Open modal
-        function openModal(image) {
-            const modal = document.getElementById('image-modal');
-            const modalImg = document.getElementById('modal-img');
-            modalImg.src = image;
-            modal.style.display = 'flex';
-        }
-
-        // Close modal
-        function closeModal() {
-            const modal = document.getElementById('image-modal');
-            modal.style.display = 'none';
-        }
-
-        // Add and save comments
         function addComment(button) {
             const galleryItem = button.closest('.gallery-item');
             const nameInput = galleryItem.querySelector('input');
