@@ -102,10 +102,8 @@
         <h2>Gallery</h2>
         <div class="gallery">
             <!-- Gallery Items -->
-            ${['1.webp', '4.webp', '5.webp', '6.webp', '8.webp', '9.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp', '16.webp', '010101.webp', '101010.webp'].map(
-                (image, index) => `
             <div class="gallery-item">
-                <img src="${image}" alt="Image ${index + 1}">
+                <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name...">
                     <textarea placeholder="Leave a comment..."></textarea>
@@ -113,8 +111,24 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            `
-            ).join('')}
+            <div class="gallery-item">
+                <img src="5.webp" alt="Image 2">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="101010.webp" alt="Image 12">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -130,20 +144,7 @@
     </footer>
 
     <script>
-        // Save and load comments using LocalStorage
-        const loadComments = () => {
-            document.querySelectorAll('.gallery-item').forEach((item, index) => {
-                const commentsList = item.querySelector('.comments-list');
-                const comments = JSON.parse(localStorage.getItem(`comments-${index}`)) || [];
-                comments.forEach(({ name, comment }) => {
-                    const commentEl = document.createElement('div');
-                    commentEl.innerHTML = `<strong>${name}:</strong> ${comment}`;
-                    commentsList.appendChild(commentEl);
-                });
-            });
-        };
-
-        const addComment = (button) => {
+        function addComment(button) {
             const galleryItem = button.closest('.gallery-item');
             const nameInput = galleryItem.querySelector('input');
             const commentInput = galleryItem.querySelector('textarea');
@@ -154,12 +155,10 @@
             const comment = commentInput.value.trim();
 
             if (name && comment) {
-                // Save to LocalStorage
                 const comments = JSON.parse(localStorage.getItem(`comments-${index}`)) || [];
                 comments.push({ name, comment });
                 localStorage.setItem(`comments-${index}`, JSON.stringify(comments));
 
-                // Display comment
                 const newComment = document.createElement('div');
                 newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
                 commentsList.appendChild(newComment);
@@ -169,9 +168,19 @@
             } else {
                 alert('Please enter your name and comment.');
             }
-        };
+        }
 
-        document.addEventListener('DOMContentLoaded', loadComments);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                const commentsList = item.querySelector('.comments-list');
+                const comments = JSON.parse(localStorage.getItem(`comments-${index}`)) || [];
+                comments.forEach(({ name, comment }) => {
+                    const commentEl = document.createElement('div');
+                    commentEl.innerHTML = `<strong>${name}:</strong> ${comment}`;
+                    commentsList.appendChild(commentEl);
+                });
+            });
+        });
     </script>
 </body>
 </html>
