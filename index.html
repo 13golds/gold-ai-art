@@ -29,9 +29,6 @@
             background-color: white;
             text-align: center;
         }
-        h1, h2 {
-            color: black;
-        }
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -41,9 +38,8 @@
         .gallery-item {
             border: 2px solid black;
             border-radius: 10px;
-            overflow: hidden;
             background-color: white;
-            max-width: 300px;
+            width: 300px;
             text-align: center;
         }
         .gallery-item img {
@@ -52,25 +48,38 @@
         }
         .comments-section {
             padding: 10px;
-            text-align: left;
-            border-top: 1px solid #ccc;
         }
-        .comment {
+        .comments-section input, .comments-section textarea {
+            width: 90%;
             margin-bottom: 10px;
+            padding: 5px;
+        }
+        .comments-section button {
+            background-color: #FFD700;
+            border: 1px solid black;
+            padding: 5px 10px;
+            cursor: pointer;
         }
         .donation-section {
             text-align: center;
+            margin: 40px 20px;
             padding: 20px;
-            background: #FFC300;
             border: 2px solid black;
             border-radius: 10px;
+            background-color: #FFC300;
+        }
+        .donation-section img {
+            width: 150px;
+            height: 150px;
+            margin-top: 10px;
         }
         footer {
             background-color: #FFC300;
             text-align: center;
             padding: 10px 0;
-            color: black;
+            margin-top: 20px;
             border-top: 3px solid black;
+            color: black;
         }
     </style>
 </head>
@@ -81,19 +90,14 @@
     </header>
 
     <div class="container">
-        <h2>About the Project</h2>
-        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
-    </div>
-
-    <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Repeat for all 18 images -->
+            <!-- Static Gallery Items -->
             <div class="gallery-item">
                 <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
-                    <input type="text" placeholder="Your name..." class="comment-name">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
                     <button onclick="addComment(this)">Submit Comment</button>
                     <div class="comments-list"></div>
                 </div>
@@ -101,18 +105,18 @@
             <div class="gallery-item">
                 <img src="2.webp" alt="Image 2">
                 <div class="comments-section">
-                    <input type="text" placeholder="Your name..." class="comment-name">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
                     <button onclick="addComment(this)">Submit Comment</button>
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Repeat for all images up to 18.webp -->
+            <!-- Repeat this block for all images -->
             <div class="gallery-item">
                 <img src="101010.webp" alt="Image 18">
                 <div class="comments-section">
-                    <input type="text" placeholder="Your name..." class="comment-name">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
                     <button onclick="addComment(this)">Submit Comment</button>
                     <div class="comments-list"></div>
                 </div>
@@ -134,19 +138,19 @@
     <script>
         function addComment(button) {
             const galleryItem = button.closest('.gallery-item');
-            const nameInput = galleryItem.querySelector('.comment-name');
-            const commentInput = galleryItem.querySelector('.comment-input');
+            const nameInput = galleryItem.querySelector('input');
+            const commentInput = galleryItem.querySelector('textarea');
             const commentsList = galleryItem.querySelector('.comments-list');
-            
+
             const name = nameInput.value.trim();
             const comment = commentInput.value.trim();
-            
+
             if (name && comment) {
                 const newComment = document.createElement('div');
                 newComment.className = 'comment';
                 newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
                 commentsList.appendChild(newComment);
-                
+
                 nameInput.value = '';
                 commentInput.value = '';
             } else {
