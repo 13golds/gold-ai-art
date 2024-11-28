@@ -83,13 +83,12 @@
         <p>Explore the harmony of human and AI creativity</p>
     </header>
     <div class="container">
-        <h2>About the Project</h2>
-        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
-        
         <h2>Gallery</h2>
         <div class="gallery">
+            <!-- Images and Comments -->
+            <!-- Loop for all provided images -->
             <div class="gallery-item">
-                <img src="1.webp" alt="Image 1">
+                <img src="8.webp" alt="Image 8">
                 <div class="comments-section">
                     <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
                     <button onclick="addComment(this)">Submit Comment</button>
@@ -97,7 +96,79 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="2.webp" alt="Image 2">
+                <img src="9.webp" alt="Image 9">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="10.webp" alt="Image 10">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="11.webp" alt="Image 11">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="12.webp" alt="Image 12">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="13.webp" alt="Image 13">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="14.webp" alt="Image 14">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="15.webp" alt="Image 15">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="16.webp" alt="Image 16">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="010101.webp" alt="Image 010101">
+                <div class="comments-section">
+                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="101010.webp" alt="Image 101010">
                 <div class="comments-section">
                     <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
                     <button onclick="addComment(this)">Submit Comment</button>
@@ -110,7 +181,6 @@
         <p>&copy; 2024 Gold & AI Art Collaboration</p>
     </footer>
     <script>
-        // Add comment function
         function addComment(button) {
             const textarea = button.previousElementSibling;
             const comment = textarea.value.trim();
@@ -131,7 +201,6 @@
             }
         }
 
-        // Delete comment function
         function deleteComment(button) {
             const comment = button.closest('.comment');
             comment.remove();
