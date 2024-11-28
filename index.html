@@ -29,6 +29,9 @@
             background-color: white;
             text-align: center;
         }
+        h1, h2 {
+            color: black;
+        }
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -38,8 +41,9 @@
         .gallery-item {
             border: 2px solid black;
             border-radius: 10px;
+            overflow: hidden;
             background-color: white;
-            width: 300px;
+            max-width: 300px;
             text-align: center;
         }
         .gallery-item img {
@@ -48,6 +52,8 @@
         }
         .comments-section {
             padding: 10px;
+            border-top: 1px solid #ccc;
+            text-align: left;
         }
         .comments-section input, .comments-section textarea {
             width: 90%;
@@ -90,9 +96,14 @@
     </header>
 
     <div class="container">
+        <h2>About the Project</h2>
+        <p>This project represents a unique collaboration between Gold and AI, where ideas and creativity merge into singular artistic expressions. Our journey includes various stages of experimentation, leading to a grand exhibition of our works.</p>
+    </div>
+
+    <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Static Gallery Items -->
+            <!-- 18 Static Images with Comment Sections -->
             <div class="gallery-item">
                 <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
@@ -111,7 +122,7 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Repeat this block for all images -->
+            <!-- Repeat for all images -->
             <div class="gallery-item">
                 <img src="101010.webp" alt="Image 18">
                 <div class="comments-section">
