@@ -101,34 +101,18 @@
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Gallery Items -->
-            <div class="gallery-item">
-                <img src="1.webp" alt="Image 1">
-                <div class="comments-section">
-                    <input type="text" placeholder="Your name...">
-                    <textarea placeholder="Leave a comment..."></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="5.webp" alt="Image 2">
-                <div class="comments-section">
-                    <input type="text" placeholder="Your name...">
-                    <textarea placeholder="Leave a comment..."></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="101010.webp" alt="Image 12">
-                <div class="comments-section">
-                    <input type="text" placeholder="Your name...">
-                    <textarea placeholder="Leave a comment..."></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
+            <!-- Add Gallery Items -->
+            ${['1.webp', '5.webp', '6.webp', '8.webp', '9.webp', '10.webp', '11.webp', '13.webp', '15.webp', '16.webp', '010101.webp', '101010.webp']
+                .map((image, index) => `
+                <div class="gallery-item">
+                    <img src="${image}" alt="Image ${index + 1}">
+                    <div class="comments-section">
+                        <input type="text" placeholder="Your name...">
+                        <textarea placeholder="Leave a comment..."></textarea>
+                        <button onclick="addComment(this)">Submit Comment</button>
+                        <div class="comments-list"></div>
+                    </div>
+                </div>`).join('')}
         </div>
     </div>
 
