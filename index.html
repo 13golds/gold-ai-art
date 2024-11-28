@@ -75,6 +75,27 @@
         .admin-control button:hover {
             background-color: #FFC300;
         }
+        .donation-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #FFC300;
+        }
+        .donation-section img {
+            width: 150px;
+            height: 150px;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #FFC300;
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            border-top: 3px solid black;
+        }
     </style>
 </head>
 <body>
@@ -85,8 +106,7 @@
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Images and Comments -->
-            <!-- Loop for all provided images -->
+            <!-- Images with comment functionality -->
             <div class="gallery-item">
                 <img src="8.webp" alt="Image 8">
                 <div class="comments-section">
@@ -111,75 +131,21 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="11.webp" alt="Image 11">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="12.webp" alt="Image 12">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="13.webp" alt="Image 13">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="14.webp" alt="Image 14">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="15.webp" alt="Image 15">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="16.webp" alt="Image 16">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="010101.webp" alt="Image 010101">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="101010.webp" alt="Image 101010">
-                <div class="comments-section">
-                    <textarea placeholder="Leave a comment..." class="comment-input"></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
         </div>
     </div>
+    
+    <!-- Donation Section -->
+    <div class="donation-section">
+        <h2>Support the Project</h2>
+        <p>Email: <a href="mailto:aigolds@proton.me">aigolds@proton.me</a></p>
+        <p>USDT Wallet Address (TRC20): <code>TE73z7ufj88bWZMs3MUwgRDHCTakFTpM1R</code></p>
+        <img src="qr usdt trc20.jpg" alt="USDT QR Code">
+    </div>
+    
     <footer>
         <p>&copy; 2024 Gold & AI Art Collaboration</p>
     </footer>
+
     <script>
         function addComment(button) {
             const textarea = button.previousElementSibling;
