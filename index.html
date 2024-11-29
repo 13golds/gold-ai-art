@@ -132,7 +132,7 @@
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <!-- Add Gallery Items -->
+            <!-- Add all 12 Gallery Items -->
             <div class="gallery-item">
                 <img src="1.webp" alt="Image 1" onclick="enlargeImage(this)">
                 <div class="comments-section">
@@ -142,7 +142,44 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Repeat for other images -->
+            <div class="gallery-item">
+                <img src="2.webp" alt="Image 2" onclick="enlargeImage(this)">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <!-- Repeat for all 12 images -->
+            <div class="gallery-item">
+                <img src="3.webp" alt="Image 3" onclick="enlargeImage(this)">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="4.webp" alt="Image 4" onclick="enlargeImage(this)">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="5.webp" alt="Image 5" onclick="enlargeImage(this)">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <!-- Add more items here -->
         </div>
     </div>
 
@@ -178,7 +215,7 @@
         }
 
         // Function to handle comments
-        async function addComment(button) {
+        function addComment(button) {
             const galleryItem = button.closest('.gallery-item');
             const nameInput = galleryItem.querySelector('input');
             const commentInput = galleryItem.querySelector('textarea');
@@ -191,15 +228,6 @@
                 const newComment = document.createElement('div');
                 newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
                 commentsList.appendChild(newComment);
-
-                // Simulate saving to server
-                await fetch('/save-comment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, comment }),
-                });
 
                 nameInput.value = '';
                 commentInput.value = '';
