@@ -44,16 +44,10 @@
             background-color: white;
             width: 300px;
             text-align: center;
-            position: relative;
         }
         .gallery-item img {
             width: 100%;
             height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.05);
         }
         .comments-section {
             padding: 10px;
@@ -91,31 +85,6 @@
             color: black;
             border-top: 3px solid black;
         }
-        /* Modal for Image Enlargement */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -134,7 +103,7 @@
         <div class="gallery">
             <!-- Add all 12 Gallery Items -->
             <div class="gallery-item">
-                <img src="1.webp" alt="Image 1" onclick="enlargeImage(this)">
+                <img src="1.webp" alt="Image 1">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name...">
                     <textarea placeholder="Leave a comment..."></textarea>
@@ -143,17 +112,7 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="2.webp" alt="Image 2" onclick="enlargeImage(this)">
-                <div class="comments-section">
-                    <input type="text" placeholder="Your name...">
-                    <textarea placeholder="Leave a comment..."></textarea>
-                    <button onclick="addComment(this)">Submit Comment</button>
-                    <div class="comments-list"></div>
-                </div>
-            </div>
-            <!-- Repeat for all 12 images -->
-            <div class="gallery-item">
-                <img src="3.webp" alt="Image 3" onclick="enlargeImage(this)">
+                <img src="5.webp" alt="Image 2">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name...">
                     <textarea placeholder="Leave a comment..."></textarea>
@@ -162,7 +121,7 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="4.webp" alt="Image 4" onclick="enlargeImage(this)">
+                <img src="6.webp" alt="Image 3">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name...">
                     <textarea placeholder="Leave a comment..."></textarea>
@@ -171,7 +130,7 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="5.webp" alt="Image 5" onclick="enlargeImage(this)">
+                <img src="8.webp" alt="Image 4">
                 <div class="comments-section">
                     <input type="text" placeholder="Your name...">
                     <textarea placeholder="Leave a comment..."></textarea>
@@ -179,7 +138,78 @@
                     <div class="comments-list"></div>
                 </div>
             </div>
-            <!-- Add more items here -->
+            <div class="gallery-item">
+                <img src="9.webp" alt="Image 5">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="10.webp" alt="Image 6">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="11.webp" alt="Image 7">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="13.webp" alt="Image 8">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="15.webp" alt="Image 9">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="16.webp" alt="Image 10">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="010101.webp" alt="Image 11">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="101010.webp" alt="Image 12">
+                <div class="comments-section">
+                    <input type="text" placeholder="Your name...">
+                    <textarea placeholder="Leave a comment..."></textarea>
+                    <button onclick="addComment(this)">Submit Comment</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -187,44 +217,29 @@
         <h2>Support the Project</h2>
         <p>Email: <a href="mailto:aigolds@proton.me">aigolds@proton.me</a></p>
         <p>USDT Wallet Address (TRC20): <code>TE73z7ufj88bWZMs3MUwgRDHCTakFTpM1R</code></p>
-        <img src="usdt_tc20.jpg" alt="USDT QR Code">
+        <img src="usdt tc20.jpg" alt="USDT QR Code">
     </div>
 
     <footer>
         <p>&copy; 2024 Gold & AI Art Collaboration</p>
     </footer>
 
-    <!-- Modal for Enlarged Images -->
-    <div class="modal" id="image-modal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img id="modal-image" src="" alt="Enlarged Image">
-    </div>
-
     <script>
-        // Function to enlarge images
-        function enlargeImage(img) {
-            const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            modalImage.src = img.src;
-            modal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('image-modal');
-            modal.style.display = 'none';
-        }
-
-        // Function to handle comments
         function addComment(button) {
             const galleryItem = button.closest('.gallery-item');
             const nameInput = galleryItem.querySelector('input');
             const commentInput = galleryItem.querySelector('textarea');
             const commentsList = galleryItem.querySelector('.comments-list');
+            const index = [...document.querySelectorAll('.gallery-item')].indexOf(galleryItem);
 
             const name = nameInput.value.trim();
             const comment = commentInput.value.trim();
 
             if (name && comment) {
+                const comments = JSON.parse(localStorage.getItem(`comments-${index}`)) || [];
+                comments.push({ name, comment });
+                localStorage.setItem(`comments-${index}`, JSON.stringify(comments));
+
                 const newComment = document.createElement('div');
                 newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
                 commentsList.appendChild(newComment);
@@ -235,6 +250,18 @@
                 alert('Please enter your name and comment.');
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                const commentsList = item.querySelector('.comments-list');
+                const comments = JSON.parse(localStorage.getItem(`comments-${index}`)) || [];
+                comments.forEach(({ name, comment }) => {
+                    const commentEl = document.createElement('div');
+                    commentEl.innerHTML = `<strong>${name}:</strong> ${comment}`;
+                    commentsList.appendChild(commentEl);
+                });
+            });
+        });
     </script>
 </body>
 </html>
